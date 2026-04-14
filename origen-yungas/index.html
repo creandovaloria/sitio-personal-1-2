@@ -31,7 +31,7 @@
     .hero {
       min-height: 100svh;
       background: linear-gradient(180deg, rgba(26,10,14,0.78) 0%, rgba(107,30,46,0.52) 55%, rgba(245,239,230,0) 100%), url('hero.jpg') center/cover no-repeat;
-      background-color: #3a1020;
+      background-color: #2a4a2a;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       text-align: center; padding: 6rem 1.5rem; position: relative;
     }
@@ -164,7 +164,9 @@
   <section class="hero">
     <div class="hero-fade"></div>
     <div class="hero-inner">
-      <span class="eyebrow">CV Experience presenta</span>
+      <div style="margin-bottom:1.5rem">
+        <img src="logo-andy.png" alt="Andy Villarruel" style="height:80px;width:auto;filter:brightness(0) invert(1) drop-shadow(0 0 8px rgba(201,122,138,0.4))" />
+      </div>
       <h1>ORIGEN</h1>
       <p class="hero-exp">EXPERIENCE</p>
       <p class="hero-by">by Andy</p>
@@ -262,11 +264,19 @@
 
   <!-- ANDY -->
   <section class="sec sec-bordo sec-center">
+    <div style="margin-bottom:1.5rem">
+      <img src="logo-andy.png" alt="Andy Villarruel" style="height:90px;width:auto;filter:brightness(0) invert(1) drop-shadow(0 0 12px rgba(201,122,138,0.3))" />
+    </div>
     <span class="eyebrow">Tu facilitadora</span>
     <h2 class="andy-h2">Andy Villarruel</h2>
     <p class="andy-handle">@andycoachvital</p>
     <p class="andy-bio">Experta en romper radicalmente tus mapas para crear una Buena Vida en Plenitud. Coach Business Consciousness &middot; Contadora Pública &middot; Coach Ontológico Profesional &middot; Energy Hacker &middot; Facilitadora en Constelaciones Cuánticas y Chamánicas.</p>
     <p class="andy-bio">Más de una década acompañando a mujeres a soltar lo que no les pertenece y activar lo que siempre estuvo ahí.</p>
+    <div style="margin-top:0.5rem;margin-bottom:2rem;padding:0.875rem 1.5rem;display:inline-block;border:1px solid rgba(201,122,138,0.3);border-radius:1rem">
+      <p style="color:rgba(245,239,230,0.6);font-size:0.75rem;margin-bottom:0.25rem">En colaboración con</p>
+      <p style="color:var(--rosa);font-size:0.9rem;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic">Carolina Bani &middot; CV Experience</p>
+    </div>
+    <br/>
     <a href="https://wa.me/5493816040414" target="_blank" class="btn-gold">Escribirle a Andy</a>
   </section>
 
@@ -323,10 +333,9 @@
         <button type="submit" class="btn-consulta" id="btn-consulta">Consultar y que Andy me contacte</button>
 
         <div class="divider">
-          <p class="divider-label">O escribinos directo:</p>
+          <p class="divider-label">O escribinos directo por WhatsApp:</p>
           <div class="wa-btns">
-            <a href="https://wa.me/5493816040414?text=Hola%20Andy%2C%20vi%20la%20p%C3%A1gina%20de%20ORIGEN%20Experience%20y%20quiero%20reservar%20mi%20lugar%20%F0%9F%8C%BF" target="_blank" class="btn-wa">WA Andy</a>
-            <a href="https://wa.me/5493813578156?text=Hola%20Caro%2C%20vi%20la%20p%C3%A1gina%20de%20ORIGEN%20Experience%20y%20quiero%20saber%20m%C3%A1s" target="_blank" class="btn-wa">WA Caro</a>
+            <a href="https://wa.me/5493816040414?text=Hola%20Andy%2C%20vi%20la%20p%C3%A1gina%20de%20ORIGEN%20Experience%20y%20quiero%20reservar%20mi%20lugar%20%F0%9F%8C%BF" target="_blank" class="btn-wa">Escribirle a Andy</a>
           </div>
         </div>
       </form>
@@ -359,8 +368,10 @@
 
   <!-- FOOTER -->
   <footer class="footer">
+    <img src="logo-andy.png" alt="Andy Villarruel" style="height:48px;width:auto;opacity:0.7;margin-bottom:0.75rem;filter:sepia(1) saturate(0.5) hue-rotate(320deg) brightness(0.6)" />
     <p>ORIGEN Experience &middot; by Andy Villarruel</p>
-    <small>CV Experience &middot; Tucumán, Argentina &middot; 2026</small>
+    <small style="display:block;margin-top:0.35rem">En colaboración con <strong>Carolina Bani</strong> &middot; CV Experience &middot; Tucumán, Argentina &middot; 2026</small>
+    <small style="display:block;margin-top:0.5rem">Consultas: <a href="https://wa.me/5493816040414" style="color:var(--rosa);text-decoration:none">Andy +54 9 381 604 0414</a> &middot; <a href="https://wa.me/5493813578156" style="color:var(--rosa);text-decoration:none">Caro +54 9 381 357 8156</a></small>
   </footer>
 
   <script>
