@@ -156,3 +156,7 @@ h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; colo
   transition: background 0.2s, color 0.2s;
 }
 .event-pill-link:hover { background: var(--dorado); color: var(--blanco); }
+
+/* ── BOTÓN CLARO (para secciones oscuras) ── */
+.btn-light { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; color: var(--borde); background: var(--crema); padding: 0.8rem 1.8rem; border-radius: 100px; transition: opacity 0.2s; }
+.btn-light:hover { opacity: 0.85; }
