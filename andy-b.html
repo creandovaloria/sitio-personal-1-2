@@ -38,12 +38,12 @@
   <!-- HERO: foto grande a la izquierda -->
   <section class="hero">
     <div class="hero-photo">
-      <img src="andy.jpg" alt="Andy Villarruel" />
+      <img src="andy.jpg" alt="Andy Villarruel" data-perfil-src="foto_url" />
     </div>
     <div class="hero-content">
       <p class="label">Coach · Facilitadora · Sanadora</p>
       <h1>Andrea Daniela<br>Villarruel</h1>
-      <p class="hero-subtitle">Coach Business Consciousness</p>
+      <p class="hero-subtitle" data-perfil="titulo">Coach Business Consciousness</p>
       <div class="divider"></div>
       <p class="hero-bio">
         Coach Ontológica Profesional · Facilitadora en Las Nuevas Constelaciones Cuánticas · Health Coach · Sanadora en Medicina Energética.
@@ -53,10 +53,10 @@
         <a href="https://experiencias.andyvillarruel.com/api/vcf" download="Andy_Villarruel.vcf" class="btn-primary">↓ Guardar contacto</a>
       </div>
       <div class="hero-socials">
-        <a href="https://www.facebook.com/advillarruel" target="_blank" rel="noopener" class="social-pill">FB</a>
-        <a href="https://instagram.com/andycoachvital" target="_blank" rel="noopener" class="social-pill">IG</a>
-        <a href="https://www.tiktok.com/@andycoachvital" target="_blank" rel="noopener" class="social-pill">TikTok</a>
-        <a href="https://www.linkedin.com/in/andrea-villarruel-45159b17/" target="_blank" rel="noopener" class="social-pill">LinkedIn</a>
+        <a href="https://www.facebook.com/advillarruel" target="_blank" rel="noopener" class="social-pill" data-perfil-href="facebook">FB</a>
+        <a href="https://instagram.com/andycoachvital" target="_blank" rel="noopener" class="social-pill" data-perfil-href="instagram">IG</a>
+        <a href="https://www.tiktok.com/@andycoachvital" target="_blank" rel="noopener" class="social-pill" data-perfil-href="tiktok">TikTok</a>
+        <a href="https://www.linkedin.com/in/andrea-villarruel-45159b17/" target="_blank" rel="noopener" class="social-pill" data-perfil-href="linkedin">LinkedIn</a>
       </div>
     </div>
   </section>
@@ -67,10 +67,10 @@
       <p class="label gold">Quién soy</p>
       <h2>Un camino de transformación<br>desde adentro hacia afuera</h2>
       <div class="divider centered"></div>
-      <p class="text-body">
+      <p class="text-body" data-perfil="sitio_personal.quien_bio_1">
         Soy Andrea Daniela Villarruel, Coach Business Consciousness, Contadora y Coach Ontológica Profesional. Me dedico a acompañar a personas y equipos en su proceso de expansión de conciencia, utilizando herramientas transformadoras como las Constelaciones Cuánticas, la Medicina Energética y el Coaching Ontológico.
       </p>
-      <p class="text-body">
+      <p class="text-body" data-perfil="sitio_personal.quien_bio_2">
         Mi trabajo integra lo personal, lo profesional y lo espiritual. Cada persona lleva dentro de sí la sabiduría que necesita para transformar su vida — mi rol es crear el espacio para que esa sabiduría emerja.
       </p>
       <div class="gallery">
@@ -86,7 +86,7 @@
     <div class="container">
       <p class="label gold">Servicios</p>
       <h2>Caminos de transformación</h2>
-      <div class="services-grid">
+      <div class="services-grid" id="andy-servicios-grid">
         <div class="service-card"><span class="service-icon">✦</span><h3>Constelaciones Cuánticas</h3><p>Las Nuevas Constelaciones Cuánticas — un método transformador para sanar patrones familiares y sistémicos.</p></div>
         <div class="service-card"><span class="service-icon">✦</span><h3>Tameana</h3><p>Técnica de activación de la conciencia y sanación energética a través de geometrías sagradas.</p></div>
         <div class="service-card"><span class="service-icon">✦</span><h3>Medicina Energética</h3><p>Sanación a través de campos energéticos para restaurar el equilibrio físico, emocional y espiritual.</p></div>
@@ -123,12 +123,12 @@
       <p class="text-body">Si resonaste con algo de lo que leíste, me encantaría acompañarte.</p>
       <div class="contact-btns">
         <a href="https://wa.me/543816040414" target="_blank" rel="noopener" class="btn-primary">WhatsApp +54 9 381 604 0414</a>
-        <a href="mailto:hola@andyvillarruel.com" class="btn-secondary">hola@andyvillarruel.com</a>
+        <a href="mailto:hola@andyvillarruel.com" class="btn-secondary" data-perfil-href="email">hola@andyvillarruel.com</a>
         <a href="https://experiencias.andyvillarruel.com/api/vcf" download="Andy_Villarruel.vcf" class="btn-gold">↓ Guardar contacto en mi teléfono</a>
       </div>
       <div class="social-links">
-        <a href="https://instagram.com/andycoachvital" target="_blank" rel="noopener">@andycoachvital</a>
-        <a href="https://www.linkedin.com/in/andrea-villarruel-45159b17/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://instagram.com/andycoachvital" target="_blank" rel="noopener" data-perfil-href="instagram">@andycoachvital</a>
+        <a href="https://www.linkedin.com/in/andrea-villarruel-45159b17/" target="_blank" rel="noopener" data-perfil-href="linkedin">LinkedIn</a>
       </div>
     </div>
   </section>
@@ -151,15 +151,33 @@
   </a>
   <script>
     fetch('https://experiencias.andyvillarruel.com/api/perfil/publico')
-      .then(function(r){ return r.json(); })
+      .then(function(r){return r.json();})
       .then(function(d){
-        if (!d.cta_barra_texto || !d.cta_barra_url) return;
-        var el = document.getElementById('cta-barra');
-        if (!el) return;
-        el.href = d.cta_barra_url;
-        el.textContent = d.cta_barra_texto;
-      })
-      .catch(function(){});
+        function get(o,p){return p.split('.').reduce(function(x,k){return x&&x[k]!==undefined?x[k]:undefined},o);}
+        var cta=document.getElementById('cta-barra');
+        if(cta&&d.cta_barra_texto)cta.textContent=d.cta_barra_texto;
+        if(cta&&d.cta_barra_url)cta.href=d.cta_barra_url;
+        document.querySelectorAll('[data-perfil]').forEach(function(el){
+          var v=get(d,el.getAttribute('data-perfil'));
+          if(v!=null&&v!=='')el.textContent=v;
+        });
+        document.querySelectorAll('[data-perfil-src]').forEach(function(el){
+          var v=get(d,el.getAttribute('data-perfil-src'));
+          if(v)el.src=v;
+        });
+        document.querySelectorAll('[data-perfil-href]').forEach(function(el){
+          var key=el.getAttribute('data-perfil-href');
+          var v=get(d,key);
+          if(v){if(key==='email')el.href='mailto:'+v;else el.href=v;}
+        });
+        var srv=d.sitio_personal&&d.sitio_personal.servicios;
+        var grid=document.getElementById('andy-servicios-grid');
+        if(srv&&grid&&srv.length){
+          grid.innerHTML=srv.map(function(s){
+            return '<div class="service-cat"><div class="cat-icon">'+s.emoji+'</div><h3>'+s.titulo+'</h3><p>'+s.contenido+'</p>'+(s.wa_texto?'<a href="https://wa.me/543816040414?text='+encodeURIComponent(s.wa_texto)+'" target="_blank" rel="noopener" class="btn-cat">Inscripciones abiertas</a>':'')+'</div>';
+          }).join('');
+        }
+      }).catch(function(){});
   </script>
 </body>
 </html>
