@@ -109,12 +109,13 @@
 
   <!-- PRÓXIMAS EDICIONES ORIGEN -->
   <style>
-    .ediciones-grid{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:32px;}
-    .edicion-card{display:flex;flex-direction:column;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:12px;padding:20px 24px;min-width:220px;text-decoration:none;color:white;transition:background 0.2s;}
-    .edicion-card:hover{background:rgba(255,255,255,0.18);}
-    .edicion-nombre{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;margin-bottom:6px;}
+    .ediciones-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px;}
+    @media(max-width:640px){.ediciones-grid{grid-template-columns:1fr;}}
+    .edicion-card{display:flex;flex-direction:column;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:12px;padding:24px;text-decoration:none;color:white;transition:background 0.2s;text-align:center;}
+    .edicion-card:hover{background:rgba(255,255,255,0.22);}
+    .edicion-nombre{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;margin-bottom:8px;}
     .edicion-fecha{font-size:0.85rem;color:#C97A8A;font-weight:500;margin-bottom:4px;}
-    .edicion-lugar{font-size:0.8rem;color:rgba(255,255,255,0.6);}
+    .edicion-lugar{font-size:0.8rem;color:rgba(255,255,255,0.65);}
   </style>
   <section class="section section-dark" id="retiros">
     <div class="container-sm text-center">
