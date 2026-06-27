@@ -113,13 +113,16 @@
     .edicion-nombre{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;margin-bottom:8px;}
     .edicion-fecha{font-size:0.85rem;color:#C97A8A;font-weight:500;margin-bottom:4px;}
     .edicion-lugar{font-size:0.8rem;color:rgba(255,255,255,0.65);}
+    .edicion-check{display:inline-block;background:#B8943F;color:white;font-size:0.7rem;font-weight:700;letter-spacing:0.05em;padding:2px 10px;border-radius:20px;margin-bottom:8px;}
+    .edicion-completada{opacity:0.75;}
   </style>
   <section class="section section-dark" id="retiros">
     <div class="container-sm text-center">
       <p class="eyebrow light">Próximas ediciones</p>
       <h2 class="light">ORIGEN Experience 2026</h2>
       <div class="ediciones-grid" id="andy-ediciones-grid">
-        <a href="https://experiencias.andyvillarruel.com/origen-yungas" target="_blank" rel="noopener" class="edicion-card">
+        <a href="https://experiencias.andyvillarruel.com/origen-yungas" target="_blank" rel="noopener" class="edicion-card edicion-completada">
+          <span class="edicion-check">✓ Completado</span>
           <span class="edicion-nombre">ORIGEN · Las Yungas</span>
           <span class="edicion-fecha">2–3 Mayo 2026</span>
           <span class="edicion-lugar">San Javier, Tucumán</span>
@@ -216,7 +219,7 @@
         var edsGrid=document.getElementById('andy-ediciones-grid');
         if(eds&&edsGrid&&eds.length){
           edsGrid.innerHTML=eds.map(function(e){
-            return '<a href="'+e.url+'" target="_blank" rel="noopener" class="edicion-card"><span class="edicion-nombre">'+e.nombre+'</span><span class="edicion-fecha">'+e.fecha+'</span><span class="edicion-lugar">'+e.lugar+'</span></a>';
+            return '<a href="'+e.url+'" target="_blank" rel="noopener" class="edicion-card'+(e.completado?' edicion-completada':'')+'">'+(e.completado?'<span class="edicion-check">✓ Completado</span>':'')+'<span class="edicion-nombre">'+e.nombre+'</span><span class="edicion-fecha">'+e.fecha+'</span><span class="edicion-lugar">'+e.lugar+'</span></a>';
           }).join('');
         }
       }).catch(function(){});
