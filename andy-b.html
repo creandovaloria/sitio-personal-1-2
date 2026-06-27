@@ -42,7 +42,7 @@
     </div>
     <div class="hero-content">
       <p class="label">Coach · Facilitadora · Sanadora</p>
-      <h1>Andrea Daniela<br>Villarruel</h1>
+      <h1 data-perfil="nombre">Andrea Daniela<br>Villarruel</h1>
       <p class="hero-subtitle" data-perfil="titulo">Coach Business Consciousness</p>
       <div class="divider"></div>
       <p class="hero-bio">
@@ -157,8 +157,8 @@
   <section class="section section-white" id="contacto">
     <div class="container text-center">
       <p class="label gold">Contacto</p>
-      <h2>Hablemos</h2>
-      <p class="text-body">Si resonaste con algo de lo que leíste, me encantaría acompañarte.</p>
+      <h2 data-perfil="sitio_personal.contacto_titulo">Hablemos</h2>
+      <p class="text-body" data-perfil="sitio_personal.contacto_descripcion">Si resonaste con algo de lo que leíste, me encantaría acompañarte.</p>
       <div class="contact-btns">
         <a href="https://wa.me/543816040414" target="_blank" rel="noopener" class="btn-primary">WhatsApp +54 9 381 604 0414</a>
         <a href="mailto:hola@andyvillarruel.com" class="btn-secondary" data-perfil-href="email">hola@andyvillarruel.com</a>
@@ -222,6 +222,10 @@
             return '<a href="'+e.url+'" target="_blank" rel="noopener" class="edicion-card'+(e.completado?' edicion-completada':'')+'">'+(e.completado?'<span class="edicion-check">✓ Completado</span>':'')+'<span class="edicion-nombre">'+e.nombre+'</span><span class="edicion-fecha">'+e.fecha+'</span><span class="edicion-lugar">'+e.lugar+'</span></a>';
           }).join('');
         }
+
+        var pv=d.sitio_personal&&d.sitio_personal.proximo_evento&&d.sitio_personal.proximo_evento.para_vos;
+        var pvList=document.getElementById('andy-paravos-list');
+        if(pv&&pvList&&pv.length){pvList.innerHTML=pv.map(function(i){return '<li>'+i+'</li>';}).join('');}
       }).catch(function(){});
   </script>
 </body>
