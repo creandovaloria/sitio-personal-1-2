@@ -106,6 +106,40 @@
     </div>
   </section>
 
+
+  <!-- PRÓXIMAS EDICIONES ORIGEN -->
+  <style>
+    .ediciones-grid{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:32px;}
+    .edicion-card{display:flex;flex-direction:column;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:12px;padding:20px 24px;min-width:220px;text-decoration:none;color:white;transition:background 0.2s;}
+    .edicion-card:hover{background:rgba(255,255,255,0.18);}
+    .edicion-nombre{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;margin-bottom:6px;}
+    .edicion-fecha{font-size:0.85rem;color:#C97A8A;font-weight:500;margin-bottom:4px;}
+    .edicion-lugar{font-size:0.8rem;color:rgba(255,255,255,0.6);}
+  </style>
+  <section class="section section-dark" id="retiros">
+    <div class="container-sm text-center">
+      <p class="eyebrow light">Próximas ediciones</p>
+      <h2 class="light">ORIGEN Experience 2026</h2>
+      <div class="ediciones-grid" id="andy-ediciones-grid">
+        <a href="https://experiencias.andyvillarruel.com/origen-yungas" target="_blank" rel="noopener" class="edicion-card">
+          <span class="edicion-nombre">ORIGEN · Las Yungas</span>
+          <span class="edicion-fecha">2–3 Mayo 2026</span>
+          <span class="edicion-lugar">San Javier, Tucumán</span>
+        </a>
+        <a href="https://experiencias.andyvillarruel.com/origen/tafi-del-valle-agosto-2026" target="_blank" rel="noopener" class="edicion-card">
+          <span class="edicion-nombre">ORIGEN · Tafí del Valle</span>
+          <span class="edicion-fecha">31 Jul–2 Ago 2026</span>
+          <span class="edicion-lugar">Tafí del Valle, Tucumán</span>
+        </a>
+        <a href="https://experiencias.andyvillarruel.com/origen/machu-picchu-octubre-2026" target="_blank" rel="noopener" class="edicion-card">
+          <span class="edicion-nombre">ORIGEN · Machu Picchu</span>
+          <span class="edicion-fecha">21–29 Oct 2026</span>
+          <span class="edicion-lugar">Perú</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- EVENTO: ORIGEN -->
   <section class="section section-dark" id="eventos">
     <div class="container-sm text-center">
@@ -222,6 +256,13 @@
         if(srv&&grid&&srv.length){
           grid.innerHTML=srv.map(function(s){
             return '<div class="service-cat"><div class="cat-icon">'+s.emoji+'</div><h3>'+s.titulo+'</h3><p>'+s.contenido+'</p>'+(s.wa_texto?'<a href="https://wa.me/543816040414?text='+encodeURIComponent(s.wa_texto)+'" target="_blank" rel="noopener" class="btn-cat">Inscripciones abiertas</a>':'')+'</div>';
+          }).join('');
+        }
+        var eds=d.sitio_personal&&d.sitio_personal.proximas_ediciones;
+        var edsGrid=document.getElementById('andy-ediciones-grid');
+        if(eds&&edsGrid&&eds.length){
+          edsGrid.innerHTML=eds.map(function(e){
+            return '<a href="'+e.url+'" target="_blank" rel="noopener" class="edicion-card"><span class="edicion-nombre">'+e.nombre+'</span><span class="edicion-fecha">'+e.fecha+'</span><span class="edicion-lugar">'+e.lugar+'</span></a>';
           }).join('');
         }
       }).catch(function(){});
