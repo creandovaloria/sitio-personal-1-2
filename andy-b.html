@@ -212,7 +212,7 @@
         var grid=document.getElementById('andy-servicios-grid');
         if(srv&&grid&&srv.length){
           grid.innerHTML=srv.map(function(s){
-            return '<div class="service-cat"><div class="cat-icon">'+s.emoji+'</div><h3>'+s.titulo+'</h3><p>'+s.contenido+'</p>'+(s.wa_texto?'<a href="https://wa.me/543816040414?text='+encodeURIComponent(s.wa_texto)+'" target="_blank" rel="noopener" class="btn-cat">Inscripciones abiertas</a>':'')+'</div>';
+            return '<div class="service-cat"><div class="cat-icon">'+s.emoji+'</div><h3>'+s.titulo+'</h3><p>'+s.contenido+'</p>'+(s.url?'<a href="'+s.url+'" target="_blank" rel="noopener" class="btn-cat">Ver más</a>':s.wa_texto?'<a href="https://wa.me/543816040414?text='+encodeURIComponent(s.wa_texto)+'" target="_blank" rel="noopener" class="btn-cat">Inscripciones abiertas</a>':'')+'</div>';
           }).join('');
         }
         var eds=d.sitio_personal&&d.sitio_personal.proximas_ediciones;
